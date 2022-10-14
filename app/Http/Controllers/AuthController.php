@@ -31,7 +31,7 @@ class AuthController extends Controller
         }
 
         $user = Auth::user();
-        $data['response'] = response()
+        return response()
         ->json([
             'status' => 'success',
             'user' => $user,
@@ -40,7 +40,6 @@ class AuthController extends Controller
                 'type' => 'bearer',
             ]
         ]);
-        return redirect()->route('dashboard', $data);
     }
 
     public function register(Request $request){
